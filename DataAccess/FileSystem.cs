@@ -30,7 +30,7 @@ namespace FileSystemLib.DataAccess
             return LoadDirectoryFiles(path, filter);
         }
 
-        private List<IFileInfo> LoadDirectoryFiles(string path, DirectoryFilter? filter = null) //Loads all files and/or folders in home directory
+        public List<IFileInfo> LoadDirectoryFiles(string path, DirectoryFilter? filter = null) //Loads all files and/or folders in home directory
         {
             ClearFilesAndFoldersIfSet();
             switch (filter)
