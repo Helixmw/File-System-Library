@@ -15,8 +15,7 @@ namespace FileSystemLib.DataAccess
 
         List<IFileInfo> files_and_folders = new();
         public FileSystem()
-        {
-            
+        {          
         }
 
         public void CreateAppDirectory(string path) //Creates new home directory if it doesnt exist. Leaves already existing
