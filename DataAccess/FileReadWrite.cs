@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FileSystemLib.DataAccess
 {
-    public static class FileReadWrite
+    internal static class FileReadWrite
     {
-        public static string ReadFile(string path)
+        internal static string ReadFile(string path)
         {
             FileStream fileStream = new FileStream(path,FileMode.Open);     //Creating the file stream
             var buffer = new byte[fileStream.Length];                 //converting the file into bytes array for the array to be read
@@ -20,19 +20,19 @@ namespace FileSystemLib.DataAccess
 
         }
 
-        public static void WriteFile(string path, byte[] buffer)
+        internal static void WriteFile(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path,FileMode.Create);
             fileStream.Write(buffer);          //Gets bytes and puts them in the file
         }
 
-        public static void CreateWriteFile(string path, byte[] buffer)
+        internal static void CreateWriteFile(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path, FileMode.CreateNew); //Create new file
             fileStream.Write(buffer);
         }
 
-        public static void SaveChanges(string path, byte[] buffer)
+        internal static void SaveChanges(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path, FileMode.Truncate);
             fileStream.Write(buffer);
