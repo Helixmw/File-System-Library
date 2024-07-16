@@ -11,20 +11,28 @@ namespace FileSystemLib.DataAccess
     {
         public string OpenFile(string path)
         {
-          FileValidation.CheckFileExists(path);
+          FileValidation.CheckFileExistsOnOpen(path);
           var result = FileReadWrite.ReadFile(path);
           return result;
         }
 
-        public void WriteFile(string path, byte[] buffer)
+
+        public void CreateAndWriteFile(string path, byte[] buffer)
         {
-            FileReadWrite.WriteFile(path, buffer);
+            FileValidation.CheckFileExistsOnWrite(path);
+            FileReadWrite.CreateWriteFile(path, buffer);
         }
 
         public void DeleteFile(string path)
         {
-            FileValidation.CheckFileExists(path);
+            FileValidation.CheckFileExistsOnOpen(path);
             File.Delete(path);
+        }
+
+        public void SaveFileChanges(string path, byte[] buffer)
+        {
+            FileValidation.CheckFileExistsOnOpen(path);
+            FileReadWrite.SaveChanges(path, buffer);
         }
 
         
