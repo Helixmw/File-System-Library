@@ -9,7 +9,7 @@ namespace FileSystemLib.DataAccess
 {
     public abstract class FileAccess : FileAccessAsync
     {
-        private protected string OpenFile(string path)
+        public string OpenFile(string path)
         {
           FileValidation.CheckFileExistsOnOpen(path);
           var result = FileReadWrite.ReadFile(path);
@@ -17,19 +17,19 @@ namespace FileSystemLib.DataAccess
         }
 
 
-        private protected void CreateAndWriteFile(string path, byte[] buffer)
+        public void CreateAndWriteFile(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnWrite(path);
             FileReadWrite.CreateWriteFile(path, buffer);
         }
 
-        private protected void DeleteFile(string path)
+        public void DeleteFile(string path)
         {
             FileValidation.CheckFileExistsOnOpen(path);
             File.Delete(path);
         }
 
-        private protected void SaveFileChanges(string path, byte[] buffer)
+        public void SaveFileChanges(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnOpen(path);
             FileReadWrite.SaveChanges(path, buffer);
