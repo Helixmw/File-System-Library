@@ -22,7 +22,15 @@ namespace FileSystemLib.DataAccess
         {
             Directory.CreateDirectory(path);          
         }
-        public List<IFileInfo> LoadDirectoryFiles(string path, DirectoryFilter? filter = null) //Loads all files and/or folders in home directory
+
+
+        public List<IFileInfo> CreateAndLoadAppDirectory(string path, DirectoryFilter? filter = null) //Creates new home dir and loads all files and folders if home dir already exists
+        {
+            CreateAppDirectory(path);
+            return LoadDirectoryFiles(path, filter);
+        }
+
+        private List<IFileInfo> LoadDirectoryFiles(string path, DirectoryFilter? filter = null) //Loads all files and/or folders in home directory
         {
             ClearFilesAndFoldersIfSet();
             switch (filter)
@@ -43,11 +51,6 @@ namespace FileSystemLib.DataAccess
             return files_and_folders;
         }
 
-        public List<IFileInfo> CreateAndLoadAppDirectory(string path, DirectoryFilter? filter = null) //Creates new home dir and loads all files and folders if home dir already exists
-        {
-            CreateAppDirectory(path);
-            return LoadDirectoryFiles(path, filter);
-        }
 
         private void ClearFilesAndFoldersIfSet()
         {

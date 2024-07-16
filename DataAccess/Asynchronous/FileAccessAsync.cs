@@ -8,30 +8,30 @@ namespace FileSystemLib.DataAccess.Asynchronous
 {
     public abstract class FileAccessAsync
     {
-        public string OpenFileAsync(string path)
+        private protected async Task<string> OpenFileAsync(string path)
         {
             FileValidation.CheckFileExistsOnOpen(path);
-            var result = FileReadWrite.ReadFile(path);
+            var result = await FileReadWriteAsync.ReadFileAsync(path);
             return result;
         }
 
 
-        public void CreateAndWriteFileAsync(string path, byte[] buffer)
+        private protected async void CreateAndWriteFileAsync(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnWrite(path);
-            FileReadWrite.CreateWriteFile(path, buffer);
+            await FileReadWriteAsync.CreateWriteFileAsync(path, buffer);
         }
 
-        public void DeleteFileAsync(string path)
+        private protected void DeleteFileAsync(string path)
         {
             FileValidation.CheckFileExistsOnOpen(path);
             File.Delete(path);
         }
 
-        public void SaveFileChangesAsync(string path, byte[] buffer)
+        private protected async Task SaveFileChangesAsync(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnOpen(path);
-            FileReadWrite.SaveChanges(path, buffer);
+            await FileReadWriteAsync.SaveChangesAsync(path, buffer);
         }
     }
 }

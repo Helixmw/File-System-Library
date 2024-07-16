@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FileSystemLib.DataAccess.Asynchronous
 {
-    public class FileReadWriteAsync
+    internal class FileReadWriteAsync
     {
-        public async static Task<string> ReadFileAsync(string path)
+        internal async static Task<string> ReadFileAsync(string path)
         {
             FileStream fileStream = new FileStream(path, FileMode.Open);     //Creating the file stream
             var buffer = new byte[fileStream.Length];                 //converting the file into bytes array for the array to be read
@@ -20,19 +20,19 @@ namespace FileSystemLib.DataAccess.Asynchronous
 
         }
 
-        public async static Task WriteFileAsync(string path, byte[] buffer)
+        internal async static Task WriteFileAsync(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path, FileMode.Create);
             await fileStream.WriteAsync(buffer);          //Gets bytes and puts them in the file
         }
 
-        public async static Task CreateWriteFileAsync(string path, byte[] buffer)
+        internal async static Task CreateWriteFileAsync(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path, FileMode.CreateNew); //Create new file
             await fileStream.WriteAsync(buffer);
         }
 
-        public async static Task SaveChangesAsync(string path, byte[] buffer)
+        internal async static Task SaveChangesAsync(string path, byte[] buffer)
         {
             FileStream fileStream = new FileStream(path, FileMode.Truncate);
             await fileStream.WriteAsync(buffer);
