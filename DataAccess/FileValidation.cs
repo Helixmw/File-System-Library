@@ -19,6 +19,7 @@ namespace FileSystemLib.DataAccess
         {
             if (File.Exists(path))
                 throw new DirectoryOrFileException("A file with this name already exists.");
+
         }
 
 
