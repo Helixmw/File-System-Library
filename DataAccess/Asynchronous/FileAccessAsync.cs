@@ -3,38 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FileSystemLib.DataAccess.Asynchronous;
 
-namespace FileSystemLib.DataAccess
+namespace FileSystemLib.DataAccess.Asynchronous
 {
-    public abstract class FileAccess : FileAccessAsync
+    public abstract class FileAccessAsync
     {
-        public string OpenFile(string path)
+        public string OpenFileAsync(string path)
         {
-          FileValidation.CheckFileExistsOnOpen(path);
-          var result = FileReadWrite.ReadFile(path);
-          return result;
+            FileValidation.CheckFileExistsOnOpen(path);
+            var result = FileReadWrite.ReadFile(path);
+            return result;
         }
 
 
-        public void CreateAndWriteFile(string path, byte[] buffer)
+        public void CreateAndWriteFileAsync(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnWrite(path);
             FileReadWrite.CreateWriteFile(path, buffer);
         }
 
-        public void DeleteFile(string path)
+        public void DeleteFileAsync(string path)
         {
             FileValidation.CheckFileExistsOnOpen(path);
             File.Delete(path);
         }
 
-        public void SaveFileChanges(string path, byte[] buffer)
+        public void SaveFileChangesAsync(string path, byte[] buffer)
         {
             FileValidation.CheckFileExistsOnOpen(path);
             FileReadWrite.SaveChanges(path, buffer);
         }
-
-        
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FileSystemLib.DataAccess
 {
-    public class FileSystem
+    public class FileSystem : FileAccess
     {
         
 
@@ -54,7 +54,8 @@ namespace FileSystemLib.DataAccess
             files_and_folders.Clear();
         }
 
-        public FileAccess FileAccess = new();
+
+        public FileOperations FileOperations = new();
         
         
     }
