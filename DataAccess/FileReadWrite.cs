@@ -26,6 +26,18 @@ namespace FileSystemLib.DataAccess
             fileStream.Write(buffer);          //Gets bytes and puts them in the file
         }
 
+        public static void CreateWriteFile(string path, byte[] buffer)
+        {
+            FileStream fileStream = new FileStream(path, FileMode.CreateNew); //Create new file
+            fileStream.Write(buffer);
+        }
+
+        public static void SaveChanges(string path, byte[] buffer)
+        {
+            FileStream fileStream = new FileStream(path, FileMode.Truncate);
+            fileStream.Write(buffer);
+        }
+
        
     }
 }
