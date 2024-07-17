@@ -4,6 +4,11 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <PackageId>Helix.FileSystemLibrary</PackageId>
+	  <Version>1.0.0</Version>
+	  <Product>Filesystem Library</Product>
+	  <Description>A Class Library that allows for file and folder management in Filesystem Projects.</Description>
+	  <Author>Helix W. Chipofya</Author>
   </PropertyGroup>
 
   <ItemGroup>
