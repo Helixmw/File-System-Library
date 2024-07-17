@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileSystemLib.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace FileSystemLib.Models
 {
     public interface IFileInfo
     {
-        public string Name { get; }
-        public string FullPath { get; }
+        string Name { get; }
+        string FullPath { get; }
+        FileType FileType { get; }
+
+
     }
 }

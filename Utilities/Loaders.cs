@@ -23,7 +23,8 @@ namespace FileSystemLib.Utilities
                     var _folder = new Folder
                     {
                         Name = name,
-                        FullPath = folder
+                        FullPath = folder,
+                        FileType = Enums.FileType.Folder,
                     };
                     folders_list.Add(_folder);
                 }
@@ -48,7 +49,8 @@ namespace FileSystemLib.Utilities
                 {
                     Name = filename,
                     FullPath = fullpath,
-                    FileExtenstion = extension
+                    FileExtenstion = extension,
+                    FileType= Enums.FileType.File,
                 };
                 files_list.Add(_file);
 
