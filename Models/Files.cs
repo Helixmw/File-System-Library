@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileSystemLib.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace FileSystemLib.Models
         public string FullPath { get; set; } = null!;
 
         public string FileExtenstion { get; set; } = null!;
+
+        public FileType FileType { get; set; }
     }
 }
